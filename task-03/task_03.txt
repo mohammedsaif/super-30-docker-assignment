@@ -1,0 +1,47 @@
+C:\Users\Dell>docker pull ubuntu:latest
+latest: Pulling from library/ubuntu
+Digest: sha256:f144425ff09be612d6d9ad965196e9cdc23dae1f42110a8a11a3e9a8198759f7
+Status: Image is up to date for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+C:\Users\Dell>docker run -it --name super30-linux ubuntu:latest
+root@a99ed7e3fc7a:/# cat /etc/os-release
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+root@a99ed7e3fc7a:/# pwd
+/
+root@a99ed7e3fc7a:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@a99ed7e3fc7a:/# exit
+exit
+
+C:\Users\Dell>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\Dell>docker run -it --name super30-linux ubuntu:latest
+docker: Error response from daemon: Conflict. The container name "/super30-linux" is already in use by container "a99ed7e3fc7aaddb8ef60d1d1e6e1fc79a0bcbab3ed3274ed48b5ac7f4fa5868". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+
+C:\Users\Dell>docker ps -a
+CONTAINER ID   IMAGE           COMMAND           CREATED              STATUS                      PORTS     NAMES
+a99ed7e3fc7a   ubuntu:latest   "/bin/bash"       About a minute ago   Exited (0) 33 seconds ago             super30-linux
+82079ddeca5b   ubuntu:latest   "/bin/bash"       51 minutes ago       Exited (0) 44 minutes ago             super30-python
+120380c7629e   01e3c3574980    "python app.py"   7 hours ago          Exited (0) 7 hours ago                docker-file-demo-conatiner
+c658b571e5a5   0273c55021be    "python app.py"   20 hours ago         Exited (2) 20 hours ago               dockerfile-demo-container
+
+C:\Users\Dell>

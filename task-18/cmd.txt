@@ -1,0 +1,140 @@
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker run -d   --name super30-postgres   -e POSTGRES_DB=super30db   -e POSTGRES_USER=super30user   -e POSTGRES_PASSWORD=super30password   -p 5432:5432   postgres:16      
+Unable to find image 'postgres:16' locally
+16: Pulling from library/postgres         
+9731e27f2541: Pull complete 
+b353db459ed1: Pull complete 
+6456bfbf35e7: Pull complete 
+e7d675f11ded: Pull complete 
+99f49de4fe2b: Pull complete 
+83d1a2a3917c: Pull complete 
+715ea0948cb1: Pull complete 
+486e8305f56f: Pull complete 
+770ef8b308ea: Pull complete 
+c49864c27f35: Pull complete 
+79faf13a8736: Pull complete 
+50c25daa0302: Pull complete 
+8309db3ae5b6: Pull complete 
+64b26645b0da: Download complete 
+7940de88f6c7: Download complete 
+Digest: sha256:65b16a8b326e0cfbdf33fa7e783f2a0cb352a61448616ccccfd616ef42aa0f65
+Status: Downloaded newer image for postgres:16
+0c9f751ae6c020928fa1b0cc84a40838d4754832a8524e5aab6041f4ae7a4939
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+0c9f751ae6c0   postgres:16    "docker-entrypoint.s…"   13 seconds ago   Up 12 seconds   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   super30-postgres
+637b30f3d03b   ubuntu         "/bin/bash"              12 hours ago     Up 12 hours                                                   volume-container-2
+662ed8ed730e   d5b1b9b3faab   "uvicorn app:app --h…"   13 hours ago     Up 13 hours     0.0.0.0:5000->8000/tcp, [::]:5000->8000/tcp   super30-api-5000
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker logs super30-postgres
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.utf8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgresql/data ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Etc/UTC
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+initdb: warning: enabling "trust" authentication for local connections
+initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+syncing data to disk ... ok
+
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/data -l logfile start
+
+waiting for server to start....2026-10-07 04:51:19.830 UTC [47] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-10-07 04:51:19.832 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-10-07 04:51:19.837 UTC [50] LOG:  database system was shut down at 2026-10-07 04:51:19 UTC
+2026-10-07 04:51:19.843 UTC [47] LOG:  database system is ready to accept connections
+ done
+server started
+CREATE DATABASE
+
+
+/usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+
+waiting for server to shut down....2026-10-07 04:51:20.044 UTC [47] LOG:  received fast shutdown request
+2026-10-07 04:51:20.046 UTC [47] LOG:  aborting any active transactions
+2026-10-07 04:51:20.047 UTC [47] LOG:  background worker "logical replication launcher" (PID 53) exited with exit code 1
+2026-10-07 04:51:20.048 UTC [48] LOG:  shutting down
+2026-10-07 04:51:20.049 UTC [48] LOG:  checkpoint starting: shutdown immediate
+2026-10-07 04:51:20.150 UTC [48] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.020 s, sync=0.076 s, total=0.102 s; sync files=301, longest=0.004 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0F0, redo lsn=0/191F0F0
+2026-10-07 04:51:20.154 UTC [47] LOG:  database system is shut down
+ done
+server stopped
+
+PostgreSQL init process complete; ready for start up.
+
+2026-10-07 04:51:20.270 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-10-07 04:51:20.272 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-07 04:51:20.272 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-10-07 04:51:20.275 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-10-07 04:51:20.281 UTC [63] LOG:  database system was shut down at 2026-10-07 04:51:20 UTC
+2026-10-07 04:51:20.286 UTC [1] LOG:  database system is ready to accept connections
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker exec -it super30-postgres psql -U super30user -d super30db
+psql (16.15 (Debian 16.15-1.pgdg13+2))
+Type "help" for help.
+
+super30db=# SELECT version();
+                                                       version                                                        
+----------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+(1 row)
+
+super30db=# \q
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug super30-postgres
+    Learn more at https://docs.docker.com/go/debug-cli/
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker stop super30-postgres
+super30-postgres
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker rm super30-postgres
+super30-postgres
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker run -d   --name super30-postgres   -e POSTGRES_DB=super30db   -e POSTGRES_USER=super30user   -e POSTGRES_PASSWORD=super30password   -p 5432:5432   postgres:16      
+dc8a0ad86ec30c7c8ca38bc2510b0c897bd61cecac019bdeaa6061184f95da97
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker network create super30-network
+5f45c4183288dd82fa66b9a8dfb1db628244e464198397d756855737fe09e104
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker network connect super30-network super30-postgres
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker build -t super30-api .
+[+] Building 0.1s (1/1) FINISHED                                                                                                          docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                      0.0s
+ => => transferring dockerfile: 2B                                                                                                                        0.0s
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/nlymea61wrzinmpx9lb4wrsvs
+
+What's next:
+    Debug this build failure with Gordon → docker ai "help me fix this build failure"
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker run -d --name super30-api --network super30-network `
+>>   -p 8000:8000 `
+>>                                
+                      
+                               
+                                   
+                                           
+                
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker run -d `  --name super30-api `  --network super30-network `  -p 8000:8000 `  -e DB_HOST=super30-postgres `  -e DB_PORT=5432 `  -e POSTGRES_DB=super30db `  -e POSTGRES_USER=super30user `  -e POSTGRES_PASSWORD=super30password `  super30-api
+2df53fb58659072bf97d65e63a809b183064dc780a66ea16eb286bf5ff312fbf
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+2df53fb58659   super30-api    "uvicorn app.main:ap…"   12 seconds ago   Up 12 seconds   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp   super30-api
+dc8a0ad86ec3   postgres:16    "docker-entrypoint.s…"   2 minutes ago    Up 2 minutes    0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   super30-postgres
+637b30f3d03b   ubuntu         "/bin/bash"              12 hours ago     Up 12 hours                                                   volume-container-2
+662ed8ed730e   d5b1b9b3faab   "uvicorn app:app --h…"   13 hours ago     Up 13 hours     0.0.0.0:5000->8000/tcp, [::]:5000->8000/tcp   super30-api-5000
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker rm -f super30-api
+super30-api
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker rm -f super30-postgres
+super30-postgres
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker network rm super30-network
+super30-network
+PS C:\Users\Dell\Downloads\super30-docker-assignment> clear

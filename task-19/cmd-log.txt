@@ -1,0 +1,408 @@
+PS C:\Users\Dell\Downloads\super30-docker-assignment> cd task-19
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up
+[+] Building 6.9s (10/10) FINISHED                                                                                                                             
+ => [internal] load local bake definitions                                                                                                                0.0s
+ => => reading from stdin 565B                                                                                                                            0.0s
+ => [internal] load build definition from Dockerfile                                                                                                      0.0s
+ => => transferring dockerfile: 264B                                                                                                                      0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                                                       6.4s
+ => [internal] load .dockerignore                                                                                                                         0.0s
+ => => transferring context: 2B                                                                                                                           0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => => resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => [internal] load build context                                                                                                                         0.1s
+ => => transferring context: 86B                                                                                                                          0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                                                             0.0s
+ => CANCELED [3/5] COPY requirements.txt .                                                                                                                0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                                                                                       0.0s
+ => ERROR [5/5] COPY app ./app                                                                                                                            0.0s
+------
+ > [5/5] COPY app ./app:
+------
+[+] up 0/1
+ - Image task-19-api Building                                                                                                                              7.1s
+Dockerfile:9
+
+--------------------
+
+   7 |     RUN pip install --no-cache-dir -r requirements.txt
+
+   8 |     
+
+   9 | >>> COPY app ./app
+
+  10 |     
+
+  11 |     EXPOSE 8000
+
+--------------------
+
+failed to solve: failed to compute cache key: failed to calculate checksum of ref sdby4nuje0exm750r854t69bp::5kfy5huar5ncb4eijr4j2zi5m: "/app": not found
+
+
+
+View build details: docker-desktop://dashboard/build/default/default/tqij6svgo4jsifxq4e0raxqnb
+
+
+What's next:
+    Debug this Compose error with Gordon → docker ai "help me fix this compose error"
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up -d
+[+] Building 0.8s (10/10) FINISHED                                                                                                                             
+ => [internal] load local bake definitions                                                                                                                0.0s
+ => => reading from stdin 565B                                                                                                                            0.0s
+ => [internal] load build definition from Dockerfile                                                                                                      0.0s
+ => => transferring dockerfile: 264B                                                                                                                      0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                                                       0.5s
+ => [internal] load .dockerignore                                                                                                                         0.0s
+ => => transferring context: 2B                                                                                                                           0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => => resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => [internal] load build context                                                                                                                         0.0s
+ => => transferring context: 86B                                                                                                                          0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                                                             0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                                                                                  0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                                                                                       0.0s
+ => ERROR [5/5] COPY app ./app                                                                                                                            0.0s
+------
+ > [5/5] COPY app ./app:
+------
+[+] up 0/1
+ - Image task-19-api Building                                                                                                                              1.0s
+Dockerfile:9
+
+--------------------
+
+   7 |     RUN pip install --no-cache-dir -r requirements.txt
+
+   8 |     
+
+   9 | >>> COPY app ./app
+
+  10 |     
+
+  11 |     EXPOSE 8000
+
+--------------------
+
+failed to solve: failed to compute cache key: failed to calculate checksum of ref sdby4nuje0exm750r854t69bp::uiqgfmu5uzez08yhpe503oel0: "/app": not found
+
+
+
+View build details: docker-desktop://dashboard/build/default/default/ua0iwhlyd99u6e4zb1n0csft6
+
+
+What's next:
+    Debug this Compose error with Gordon → docker ai "help me fix this compose error"
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose ps
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose ps
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up -d
+[+] Building 1.6s (10/10) FINISHED                                                                                                                             
+ => [internal] load local bake definitions                                                                                                                0.0s
+ => => reading from stdin 565B                                                                                                                            0.0s
+ => [internal] load build definition from Dockerfile                                                                                                      0.0s
+ => => transferring dockerfile: 264B                                                                                                                      0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                                                       1.2s
+ => [internal] load .dockerignore                                                                                                                         0.0s
+ => => transferring context: 2B                                                                                                                           0.0s
+ => [internal] load build context                                                                                                                         0.1s
+ => => transferring context: 86B                                                                                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => => resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                                                             0.0s
+ => CANCELED [3/5] COPY requirements.txt .                                                                                                                0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                                                                                       0.0s
+ => ERROR [5/5] COPY app ./app                                                                                                                            0.0s
+------
+ > [5/5] COPY app ./app:
+------
+[+] up 0/1
+ - Image task-19-api Building                                                                                                                              1.7s
+Dockerfile:9
+
+--------------------
+
+   7 |     RUN pip install --no-cache-dir -r requirements.txt
+
+   8 |     
+
+   9 | >>> COPY app ./app
+
+  10 |     
+
+  11 |     EXPOSE 8000
+
+--------------------
+
+failed to solve: failed to compute cache key: failed to calculate checksum of ref sdby4nuje0exm750r854t69bp::w5leja1o6jbc6btc6hmuyr4lz: "/app": not found
+
+
+
+View build details: docker-desktop://dashboard/build/default/default/dzb3socqyvlyz7pb1r4jjdtuq
+
+
+What's next:
+    Debug this Compose error with Gordon → docker ai "help me fix this compose error"
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up -d
+[+] Building 1.7s (10/10) FINISHED                                                                                                                             
+ => [internal] load local bake definitions                                                                                                                0.0s
+ => => reading from stdin 565B                                                                                                                            0.0s
+ => [internal] load build definition from Dockerfile                                                                                                      0.0s
+ => => transferring dockerfile: 265B                                                                                                                      0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                                                       1.4s
+ => [internal] load .dockerignore                                                                                                                         0.0s
+ => => transferring context: 2B                                                                                                                           0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.1s
+ => => resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => [internal] load build context                                                                                                                         0.1s
+ => => transferring context: 86B                                                                                                                          0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                                                             0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                                                                                  0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                                                                                       0.0s
+ => ERROR [5/5] COPY app ./app/                                                                                                                           0.0s
+------
+ > [5/5] COPY app ./app/:
+------
+[+] up 0/1
+ - Image task-19-api Building                                                                                                                              1.9s
+Dockerfile:9
+
+--------------------
+
+   7 |     RUN pip install --no-cache-dir -r requirements.txt
+
+   8 |     
+
+   9 | >>> COPY app ./app/
+
+  10 |     
+
+  11 |     EXPOSE 8000
+
+--------------------
+
+failed to solve: failed to compute cache key: failed to calculate checksum of ref sdby4nuje0exm750r854t69bp::iu9mut04oqpoisex3d82khjbt: "/app": not found
+
+
+
+View build details: docker-desktop://dashboard/build/default/default/lekuqp5jis4mpkui6y1gp58hf
+
+
+What's next:
+    Debug this Compose error with Gordon → docker ai "help me fix this compose error"
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up --build
+[+] Building 23.9s (12/12) FINISHED                                                                                                                            
+ => [internal] load local bake definitions                                                                                                                0.0s
+ => => reading from stdin 565B                                                                                                                            0.0s
+ => [internal] load build definition from Dockerfile                                                                                                      0.0s
+ => => transferring dockerfile: 260B                                                                                                                      0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                                                       2.2s
+ => [internal] load .dockerignore                                                                                                                         0.0s
+ => => transferring context: 2B                                                                                                                           0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => => resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f                                 0.0s
+ => [internal] load build context                                                                                                                         0.1s
+ => => transferring context: 1.00kB                                                                                                                       0.0s
+ => CACHED [2/5] WORKDIR /app                                                                                                                             0.0s
+ => [3/5] COPY requirements.txt .                                                                                                                         0.0s
+ => [4/5] RUN pip install --no-cache-dir -r requirements.txt                                                                                             16.9s
+ => [5/5] COPY main.py .                                                                                                                                  0.1s
+ => exporting to image                                                                                                                                    3.9s
+ => => exporting layers                                                                                                                                   2.3s
+ => => exporting manifest sha256:b541e86ef6ecc905bfce02cf81180c65d3cccd65857d1314752f34ca620b15e2                                                         0.0s
+ => => exporting config sha256:b63ada1d6f72ca9ff67860c13c54ac257cea632c74f37e7df5ee1b7a927510e0                                                           0.0s
+ => => exporting attestation manifest sha256:31523361a525fdad52d9515e3fec582f9f80530ef84347dd7f2a551d0de467e0                                             0.0s
+ => => exporting manifest list sha256:250b6ab881387d1d7ffe30a791646e516c35b11296ae4446d9cf7240905c75fa                                                    0.0s
+ => => naming to docker.io/library/task-19-api:latest                                                                                                     0.0s
+ => => unpacking to docker.io/library/task-19-api:latest                                                                                                  1.5s
+ => resolving provenance for metadata file                                                                                                                0.0s
+[+] up 5/5
+ ✔ Image task-19-api            Built                                                                                                                     24.2s
+ ✔ Network task-19_default      Created                                                                                                                    0.0s
+ ✔ Volume task-19_postgres_data Created                                                                                                                    0.0s
+ ... 2 more                                                                                                                                                    
+Attaching to super30-api, super30-postgres
+super30-postgres  | The files belonging to this database system will be owned by user "postgres".
+super30-postgres  | This user must also own the server process.
+super30-postgres  | 
+super30-postgres  | The database cluster will be initialized with locale "en_US.utf8".
+super30-postgres  | The default database encoding has accordingly been set to "UTF8".
+super30-postgres  | The default text search configuration will be set to "english".
+super30-postgres  | 
+super30-postgres  | Data page checksums are disabled.
+super30-postgres  | 
+super30-postgres  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+super30-postgres  | creating subdirectories ... ok
+super30-postgres  | selecting dynamic shared memory implementation ... posix
+super30-postgres  | selecting default max_connections ... 100
+super30-postgres  | selecting default shared_buffers ... 128MB
+super30-postgres  | selecting default time zone ... Etc/UTC
+super30-postgres  | creating configuration files ... ok
+super30-postgres  | running bootstrap script ... ok
+super30-api       | INFO:     Started server process [1]
+super30-api       | INFO:     Waiting for application startup.
+super30-api       | INFO:     Application startup complete.
+super30-api       | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+super30-postgres  | performing post-bootstrap initialization ... ok
+super30-postgres  | syncing data to disk ... ok
+super30-postgres  | 
+super30-postgres  | 
+super30-postgres  | Success. You can now start the database server using:
+super30-postgres  | 
+super30-postgres  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+super30-postgres  | 
+super30-postgres  | initdb: warning: enabling "trust" authentication for local connections
+super30-postgres  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+super30-postgres  | waiting for server to start....2026-10-07 05:30:51.965 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+super30-postgres  | 2026-10-07 05:30:51.968 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+super30-postgres  | 2026-10-07 05:30:51.976 UTC [51] LOG:  database system was shut down at 2026-10-07 05:30:51 UTC
+super30-postgres  | 2026-10-07 05:30:51.981 UTC [48] LOG:  database system is ready to accept connections
+super30-postgres  |  done
+super30-postgres  | server started
+super30-postgres  | CREATE DATABASE
+super30-postgres  | 
+super30-postgres  | 
+super30-postgres  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+super30-postgres  | 
+super30-postgres  | waiting for server to shut down....2026-10-07 05:30:52.179 UTC [48] LOG:  received fast shutdown request
+super30-postgres  | 2026-10-07 05:30:52.182 UTC [48] LOG:  aborting any active transactions
+super30-postgres  | 2026-10-07 05:30:52.185 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+super30-postgres  | 2026-10-07 05:30:52.186 UTC [49] LOG:  shutting down
+super30-postgres  | 2026-10-07 05:30:52.188 UTC [49] LOG:  checkpoint starting: shutdown immediate
+super30-postgres  | 2026-10-07 05:30:52.267 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.016 s, sync=0.055 s, total=0.082 s; sync files=301, longest=0.003 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0F0, redo lsn=0/191F0F0
+super30-postgres  | 2026-10-07 05:30:52.272 UTC [48] LOG:  database system is shut down
+super30-postgres  |  done
+super30-postgres  | server stopped
+super30-postgres  | 
+super30-postgres  | PostgreSQL init process complete; ready for start up.
+super30-postgres  | 
+super30-postgres  | 2026-10-07 05:30:52.302 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+super30-postgres  | 2026-10-07 05:30:52.303 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+super30-postgres  | 2026-10-07 05:30:52.303 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+super30-postgres  | 2026-10-07 05:30:52.308 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+super30-postgres  | 2026-10-07 05:30:52.317 UTC [64] LOG:  database system was shut down at 2026-10-07 05:30:52 UTC
+super30-postgres  | 2026-10-07 05:30:52.328 UTC [1] LOG:  database system is ready to accept connections
+
+
+
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> 
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up
+[+] up 2/2
+ ✔ Container super30-api      Running                                                                                                                      0.0s
+ ✔ Container super30-postgres Running                                                                                                                      0.0s
+Attaching to super30-api, super30-postgres
+super30-postgres  | 2026-10-07 05:35:52.382 UTC [62] LOG:  checkpoint starting: time
+super30-postgres  | 2026-10-07 05:35:56.670 UTC [62] LOG:  checkpoint complete: wrote 45 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.246 s, sync=0.016 s, total=4.293 s; sync files=12, longest=0.005 s, average=0.002 s; distance=261 kB, estimate=261 kB; lsn=0/1960528, redo lsn=0/19604F0
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up  
+[+] up 2/2
+ ✔ Container super30-postgres Running                                                                                                    0.0s
+ ✔ Container super30-api      Running                                                                                                    0.0s
+Attaching to super30-api, super30-postgres
+Gracefully Stopping... press Ctrl+C again to force
+Container super30-api Stopping 
+Container super30-api Stopped 
+Container super30-postgres Stopping 
+Container super30-postgres Stopped 
+
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> Detach
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up -d
+[+] up 2/2
+ ✔ Container super30-postgres Started                                                                                                    0.3s
+ ✔ Container super30-api      Started                                                                                                    0.3s
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose ps
+NAME               IMAGE         COMMAND                  SERVICE   CREATED         STATUS          PORTS
+super30-api        task-19-api   "uvicorn main:app --…"   api       6 minutes ago   Up 9 seconds    0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+super30-postgres   postgres:16   "docker-entrypoint.s…"   db        6 minutes ago   Up 10 seconds   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose logs
+super30-api       | INFO:     Started server process [1]
+super30-postgres  | The files belonging to this database system will be owned by user "postgres".
+super30-postgres  | This user must also own the server process.
+super30-postgres  | 
+super30-postgres  | The database cluster will be initialized with locale "en_US.utf8".
+super30-postgres  | The default database encoding has accordingly been set to "UTF8".
+super30-postgres  | The default text search configuration will be set to "english".
+super30-postgres  | 
+super30-postgres  | Data page checksums are disabled.
+super30-postgres  | 
+super30-postgres  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+super30-postgres  | creating subdirectories ... ok
+super30-postgres  | selecting dynamic shared memory implementation ... posix
+super30-postgres  | selecting default max_connections ... 100
+super30-postgres  | selecting default shared_buffers ... 128MB
+super30-api       | INFO:     Waiting for application startup.
+super30-api       | INFO:     Application startup complete.
+super30-api       | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+super30-api       | INFO:     Shutting down
+super30-api       | INFO:     Waiting for application shutdown.
+super30-postgres  | selecting default time zone ... Etc/UTC
+super30-api       | INFO:     Application shutdown complete.
+super30-api       | INFO:     Finished server process [1]
+super30-api       | INFO:     Started server process [1]
+super30-api       | INFO:     Waiting for application startup.
+super30-api       | INFO:     Application startup complete.
+super30-api       | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+super30-postgres  | creating configuration files ... ok
+super30-postgres  | running bootstrap script ... ok
+super30-postgres  | performing post-bootstrap initialization ... ok
+super30-postgres  | syncing data to disk ... ok
+super30-postgres  | 
+super30-postgres  | 
+super30-postgres  | Success. You can now start the database server using:
+super30-postgres  | 
+super30-postgres  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+super30-postgres  | 
+super30-postgres  | initdb: warning: enabling "trust" authentication for local connections
+super30-postgres  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+super30-postgres  | waiting for server to start....2026-10-07 05:30:51.965 UTC [48] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+super30-postgres  | 2026-10-07 05:30:51.968 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+super30-postgres  | 2026-10-07 05:30:51.976 UTC [51] LOG:  database system was shut down at 2026-10-07 05:30:51 UTC
+super30-postgres  | 2026-10-07 05:30:51.981 UTC [48] LOG:  database system is ready to accept connections
+super30-postgres  |  done
+super30-postgres  | server started
+super30-postgres  | CREATE DATABASE
+super30-postgres  | 
+super30-postgres  | 
+super30-postgres  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+super30-postgres  | 
+super30-postgres  | waiting for server to shut down....2026-10-07 05:30:52.179 UTC [48] LOG:  received fast shutdown request
+super30-postgres  | 2026-10-07 05:30:52.182 UTC [48] LOG:  aborting any active transactions
+super30-postgres  | 2026-10-07 05:30:52.185 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+super30-postgres  | 2026-10-07 05:30:52.186 UTC [49] LOG:  shutting down
+super30-postgres  | 2026-10-07 05:30:52.188 UTC [49] LOG:  checkpoint starting: shutdown immediate
+super30-postgres  | 2026-10-07 05:30:52.267 UTC [49] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.016 s, sync=0.055 s, total=0.082 s; sync files=301, longest=0.003 s, average=0.001 s; distance=4273 kB, estimate=4273 kB; lsn=0/191F0F0, redo lsn=0/191F0F0
+super30-postgres  | 2026-10-07 05:30:52.272 UTC [48] LOG:  database system is shut down
+super30-postgres  |  done
+super30-postgres  | server stopped
+super30-postgres  | 
+super30-postgres  | PostgreSQL init process complete; ready for start up.
+super30-postgres  | 
+super30-postgres  | 2026-10-07 05:30:52.302 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+super30-postgres  | 2026-10-07 05:30:52.303 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+super30-postgres  | 2026-10-07 05:30:52.303 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+super30-postgres  | 2026-10-07 05:30:52.308 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+super30-postgres  | 2026-10-07 05:30:52.317 UTC [64] LOG:  database system was shut down at 2026-10-07 05:30:52 UTC
+super30-postgres  | 2026-10-07 05:30:52.328 UTC [1] LOG:  database system is ready to accept connections
+super30-postgres  | 2026-10-07 05:35:52.382 UTC [62] LOG:  checkpoint starting: time
+super30-postgres  | 2026-10-07 05:35:56.670 UTC [62] LOG:  checkpoint complete: wrote 45 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.246 s, sync=0.016 s, total=4.293 s; sync files=12, longest=0.005 s, average=0.002 s; distance=261 kB, estimate=261 kB; lsn=0/1960528, redo lsn=0/19604F0
+super30-postgres  | 2026-10-07 05:37:00.546 UTC [1] LOG:  received fast shutdown request
+super30-postgres  | 2026-10-07 05:37:00.549 UTC [1] LOG:  aborting any active transactions
+super30-postgres  | 2026-10-07 05:37:00.553 UTC [1] LOG:  background worker "logical replication launcher" (PID 67) exited with exit code 1
+super30-postgres  | 2026-10-07 05:37:00.557 UTC [62] LOG:  shutting down
+super30-postgres  | 2026-10-07 05:37:00.560 UTC [62] LOG:  checkpoint starting: shutdown immediate
+super30-postgres  | 2026-10-07 05:37:00.570 UTC [62] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.014 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=234 kB; lsn=0/19605D8, redo lsn=0/19605D8
+super30-postgres  | 2026-10-07 05:37:00.586 UTC [1] LOG:  database system is shut down
+super30-postgres  | 
+super30-postgres  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+super30-postgres  | 
+super30-postgres  | 2026-10-07 05:37:06.683 UTC [1] LOG:  starting PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+super30-postgres  | 2026-10-07 05:37:06.685 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+super30-postgres  | 2026-10-07 05:37:06.686 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+super30-postgres  | 2026-10-07 05:37:06.691 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+super30-postgres  | 2026-10-07 05:37:06.702 UTC [29] LOG:  database system was shut down at 2026-10-07 05:37:00 UTC
+super30-postgres  | 2026-10-07 05:37:06.719 UTC [1] LOG:  database system is ready to accept connections
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> docker compose up -d
+[+] up 2/2
+ ✔ Container super30-api      Running                                                                                                    0.0s
+ ✔ Container super30-postgres Running                                                                                                    0.0s
+PS C:\Users\Dell\Downloads\super30-docker-assignment\task-19> 

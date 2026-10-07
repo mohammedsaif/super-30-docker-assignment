@@ -1,0 +1,758 @@
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker network create super30-network
+62bdcf0e75c571a4d89cda8dc66e793b8eca9346fce32fdcf4ed249007fe0834
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker network ls
+NETWORK ID     NAME              DRIVER    SCOPE
+1df5db98c734   bridge            bridge    local
+0a08d84e6001   host              host      local
+70fe4a65b7f7   none              null      local
+62bdcf0e75c5   super30-network   bridge    local
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker run -d --name super30-server --network super30-network nginx
+6e8fb4f6df9541a688ad571b0a8835e5bfd627f44abe3fd0d7aa37f22d7e980a
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS             PORTS                                         NAMES
+6e8fb4f6df95   nginx          "/docker-entrypoint.…"   3 seconds ago       Up 3 seconds       80/tcp                                        super30-server
+637b30f3d03b   ubuntu         "/bin/bash"              3 minutes ago       Up 3 minutes                                                     volume-container-2
+662ed8ed730e   d5b1b9b3faab   "uvicorn app:app --h…"   About an hour ago   Up About an hour   0.0.0.0:5000->8000/tcp, [::]:5000->8000/tcp   super30-api-5000
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker run -it --name super30-client --network super30-network ubuntu
+root@1ebcae483bb8:/# apt update
+apt install -y curl
+Get:1 http://security.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+Get:2 http://archive.ubuntu.com/ubuntu resolute InRelease [136 kB]                  
+Get:3 http://security.ubuntu.com/ubuntu resolute-security/main amd64 Packages [731 kB]
+Get:4 http://archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+Get:5 http://security.ubuntu.com/ubuntu resolute-security/restricted amd64 Packages [584 kB]
+Get:6 http://security.ubuntu.com/ubuntu resolute-security/multiverse amd64 Packages [13.6 kB]
+Get:7 http://security.ubuntu.com/ubuntu resolute-security/universe amd64 Packages [248 kB]
+Get:8 http://archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]   
+Get:9 http://archive.ubuntu.com/ubuntu resolute/restricted amd64 Packages [189 kB]
+Get:10 http://archive.ubuntu.com/ubuntu resolute/multiverse amd64 Packages [352 kB]
+Get:11 http://archive.ubuntu.com/ubuntu resolute/main amd64 Packages [1874 kB]
+Get:12 http://archive.ubuntu.com/ubuntu resolute/universe amd64 Packages [20.1 MB]
+Get:13 http://archive.ubuntu.com/ubuntu resolute-updates/restricted amd64 Packages [603 kB]                                                 
+Get:14 http://archive.ubuntu.com/ubuntu resolute-updates/multiverse amd64 Packages [14.9 kB]                                                
+Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 Packages [405 kB]                                                   
+Get:16 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 Packages [899 kB]                                                       
+Get:17 http://archive.ubuntu.com/ubuntu resolute-backports/universe amd64 Packages [3308 B]                                                 
+Fetched 26.6 MB in 10s (2585 kB/s)                                                                                                          
+2 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Installing:                     
+  curl
+
+Installing dependencies:
+  bash-completion  libcurl4t64       libhogweed6t64  libkrb5-3        libnettle8t64  librtmp1             libssh2-1t64   publicsuffix
+  ca-certificates  libffi8           libidn2-0       libkrb5support0  libnghttp2-14  libsasl2-2           libtasn1-6
+  krb5-locales     libgnutls30t64    libk5crypto3    libldap-common   libp11-kit0    libsasl2-modules     libunistring5
+  libbrotli1       libgssapi-krb5-2  libkeyutils1    libldap2         libpsl5t64     libsasl2-modules-db  openssl
+
+Suggested packages:
+  gnutls-bin  krb5-user                    | libsasl2-modules-gssapi-heimdal  libsasl2-modules-otp
+  krb5-doc    libsasl2-modules-gssapi-mit  libsasl2-modules-ldap              libsasl2-modules-sql
+
+Summary:
+  Upgrading: 0, Installing: 30, Removing: 0, Not Upgrading: 2
+  Download size: 6617 kB
+  Space needed: 20.1 MB / 1022 GB available
+
+Get:1 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssl amd64 3.5.5-1ubuntu3.7 [1243 kB]
+Get:2 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 ca-certificates all 20260601~26.04.1 [139 kB]
+Get:3 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 krb5-locales all 1.22.1-2ubuntu4.1 [13.6 kB]
+Get:4 http://archive.ubuntu.com/ubuntu resolute/main amd64 libffi8 amd64 3.5.2-4 [26.3 kB]
+Get:5 http://archive.ubuntu.com/ubuntu resolute/main amd64 libnettle8t64 amd64 3.10.2-1 [185 kB]
+Get:6 http://archive.ubuntu.com/ubuntu resolute/main amd64 libhogweed6t64 amd64 3.10.2-1 [201 kB]
+Get:7 http://archive.ubuntu.com/ubuntu resolute/main amd64 libunistring5 amd64 1.3-2build1 [610 kB]
+Get:8 http://archive.ubuntu.com/ubuntu resolute/main amd64 libidn2-0 amd64 2.3.8-4build1 [67.6 kB]
+Get:9 http://archive.ubuntu.com/ubuntu resolute/main amd64 libp11-kit0 amd64 0.26.2-2 [313 kB]
+Get:10 http://archive.ubuntu.com/ubuntu resolute/main amd64 libtasn1-6 amd64 4.21.0-2 [45.3 kB]
+Get:11 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libgnutls30t64 amd64 3.8.12-2ubuntu1.1 [1029 kB]
+Get:12 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libkrb5support0 amd64 1.22.1-2ubuntu4.1 [33.5 kB]
+Get:13 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libk5crypto3 amd64 1.22.1-2ubuntu4.1 [82.0 kB]
+Get:14 http://archive.ubuntu.com/ubuntu resolute/main amd64 libkeyutils1 amd64 1.6.3-6ubuntu3 [10.6 kB]
+Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libkrb5-3 amd64 1.22.1-2ubuntu4.1 [361 kB]
+Get:16 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libgssapi-krb5-2 amd64 1.22.1-2ubuntu4.1 [147 kB]
+Get:17 http://archive.ubuntu.com/ubuntu resolute/main amd64 bash-completion all 1:2.16.0-8build1 [214 kB]
+Get:18 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libnghttp2-14 amd64 1.68.0-2ubuntu0.2 [71.0 kB]
+Get:19 http://archive.ubuntu.com/ubuntu resolute/main amd64 libpsl5t64 amd64 0.21.2-1.1build2 [59.5 kB]
+Get:20 http://archive.ubuntu.com/ubuntu resolute/main amd64 publicsuffix all 20260129.1928-1 [139 kB]
+Get:21 http://archive.ubuntu.com/ubuntu resolute/main amd64 libbrotli1 amd64 1.2.0-3build1 [343 kB]
+Get:22 http://archive.ubuntu.com/ubuntu resolute/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9ubuntu3 [21.1 kB]
+Get:23 http://archive.ubuntu.com/ubuntu resolute/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9ubuntu3 [54.0 kB]
+Get:24 http://archive.ubuntu.com/ubuntu resolute/main amd64 libldap-common all 2.6.10+dfsg-1ubuntu5 [36.0 kB]
+Get:25 http://archive.ubuntu.com/ubuntu resolute/main amd64 libldap2 amd64 2.6.10+dfsg-1ubuntu5 [204 kB]
+Get:26 http://archive.ubuntu.com/ubuntu resolute/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-3 [59.0 kB]
+Get:27 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libssh2-1t64 amd64 1.11.1-1ubuntu0.26.04.4 [138 kB]
+Get:28 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libcurl4t64 amd64 8.18.0-1ubuntu2.7 [428 kB]
+Get:29 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 curl amd64 8.18.0-1ubuntu2.7 [272 kB]
+Get:30 http://archive.ubuntu.com/ubuntu resolute/main amd64 libsasl2-modules amd64 2.1.28+dfsg1-9ubuntu3 [71.3 kB]
+Fetched 6617 kB in 5s (1282 kB/s)          
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 79, <STDIN> line 30.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 30.)
+debconf: falling back to frontend: Teletype
+Preconfiguring packages ...
+Selecting previously unselected package openssl.
+(Reading database ... 7789 files and directories currently installed.)
+Preparing to unpack .../00-openssl_3.5.5-1ubuntu3.7_amd64.deb ...
+Unpacking openssl (3.5.5-1ubuntu3.7) ...
+Selecting previously unselected package ca-certificates.
+Preparing to unpack .../01-ca-certificates_20260601~26.04.1_all.deb ...
+Unpacking ca-certificates (20260601~26.04.1) ...
+Selecting previously unselected package krb5-locales.
+Preparing to unpack .../02-krb5-locales_1.22.1-2ubuntu4.1_all.deb ...
+Unpacking krb5-locales (1.22.1-2ubuntu4.1) ...
+Selecting previously unselected package libffi8:amd64.
+Preparing to unpack .../03-libffi8_3.5.2-4_amd64.deb ...
+Unpacking libffi8:amd64 (3.5.2-4) ...
+Selecting previously unselected package libnettle8t64:amd64.
+Preparing to unpack .../04-libnettle8t64_3.10.2-1_amd64.deb ...
+Unpacking libnettle8t64:amd64 (3.10.2-1) ...
+Selecting previously unselected package libhogweed6t64:amd64.
+Preparing to unpack .../05-libhogweed6t64_3.10.2-1_amd64.deb ...
+Unpacking libhogweed6t64:amd64 (3.10.2-1) ...
+Selecting previously unselected package libunistring5:amd64.
+Preparing to unpack .../06-libunistring5_1.3-2build1_amd64.deb ...
+Unpacking libunistring5:amd64 (1.3-2build1) ...
+Selecting previously unselected package libidn2-0:amd64.
+Preparing to unpack .../07-libidn2-0_2.3.8-4build1_amd64.deb ...
+Unpacking libidn2-0:amd64 (2.3.8-4build1) ...
+Selecting previously unselected package libp11-kit0:amd64.
+Preparing to unpack .../08-libp11-kit0_0.26.2-2_amd64.deb ...
+Unpacking libp11-kit0:amd64 (0.26.2-2) ...
+Selecting previously unselected package libtasn1-6:amd64.
+Preparing to unpack .../09-libtasn1-6_4.21.0-2_amd64.deb ...
+Unpacking libtasn1-6:amd64 (4.21.0-2) ...
+Selecting previously unselected package libgnutls30t64:amd64.
+Preparing to unpack .../10-libgnutls30t64_3.8.12-2ubuntu1.1_amd64.deb ...
+Unpacking libgnutls30t64:amd64 (3.8.12-2ubuntu1.1) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Preparing to unpack .../11-libkrb5support0_1.22.1-2ubuntu4.1_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.22.1-2ubuntu4.1) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Preparing to unpack .../12-libk5crypto3_1.22.1-2ubuntu4.1_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.22.1-2ubuntu4.1) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Preparing to unpack .../13-libkeyutils1_1.6.3-6ubuntu3_amd64.deb ...
+Unpacking libkeyutils1:amd64 (1.6.3-6ubuntu3) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Preparing to unpack .../14-libkrb5-3_1.22.1-2ubuntu4.1_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.22.1-2ubuntu4.1) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Preparing to unpack .../15-libgssapi-krb5-2_1.22.1-2ubuntu4.1_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.22.1-2ubuntu4.1) ...
+Selecting previously unselected package bash-completion.
+Preparing to unpack .../16-bash-completion_1%3a2.16.0-8build1_all.deb ...
+Unpacking bash-completion (1:2.16.0-8build1) ...
+Selecting previously unselected package libnghttp2-14:amd64.
+Preparing to unpack .../17-libnghttp2-14_1.68.0-2ubuntu0.2_amd64.deb ...
+Unpacking libnghttp2-14:amd64 (1.68.0-2ubuntu0.2) ...
+Selecting previously unselected package libpsl5t64:amd64.
+Preparing to unpack .../18-libpsl5t64_0.21.2-1.1build2_amd64.deb ...
+Unpacking libpsl5t64:amd64 (0.21.2-1.1build2) ...
+Selecting previously unselected package publicsuffix.
+Preparing to unpack .../19-publicsuffix_20260129.1928-1_all.deb ...
+Unpacking publicsuffix (20260129.1928-1) ...
+Selecting previously unselected package libbrotli1:amd64.
+Preparing to unpack .../20-libbrotli1_1.2.0-3build1_amd64.deb ...
+Unpacking libbrotli1:amd64 (1.2.0-3build1) ...
+Selecting previously unselected package libsasl2-modules-db:amd64.
+Preparing to unpack .../21-libsasl2-modules-db_2.1.28+dfsg1-9ubuntu3_amd64.deb ...
+Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9ubuntu3) ...
+Selecting previously unselected package libsasl2-2:amd64.
+Preparing to unpack .../22-libsasl2-2_2.1.28+dfsg1-9ubuntu3_amd64.deb ...
+Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9ubuntu3) ...
+Selecting previously unselected package libldap-common.
+Preparing to unpack .../23-libldap-common_2.6.10+dfsg-1ubuntu5_all.deb ...
+Unpacking libldap-common (2.6.10+dfsg-1ubuntu5) ...
+Selecting previously unselected package libldap2:amd64.
+Preparing to unpack .../24-libldap2_2.6.10+dfsg-1ubuntu5_amd64.deb ...
+Unpacking libldap2:amd64 (2.6.10+dfsg-1ubuntu5) ...
+Selecting previously unselected package librtmp1:amd64.
+Preparing to unpack .../25-librtmp1_2.4+20151223.gitfa8646d.1-3_amd64.deb ...
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-3) ...
+Selecting previously unselected package libssh2-1t64:amd64.
+Preparing to unpack .../26-libssh2-1t64_1.11.1-1ubuntu0.26.04.4_amd64.deb ...
+Unpacking libssh2-1t64:amd64 (1.11.1-1ubuntu0.26.04.4) ...
+Selecting previously unselected package libcurl4t64:amd64.
+Preparing to unpack .../27-libcurl4t64_8.18.0-1ubuntu2.7_amd64.deb ...
+Unpacking libcurl4t64:amd64 (8.18.0-1ubuntu2.7) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../28-curl_8.18.0-1ubuntu2.7_amd64.deb ...
+Unpacking curl (8.18.0-1ubuntu2.7) ...
+Selecting previously unselected package libsasl2-modules:amd64.
+Preparing to unpack .../29-libsasl2-modules_2.1.28+dfsg1-9ubuntu3_amd64.deb ...
+Unpacking libsasl2-modules:amd64 (2.1.28+dfsg1-9ubuntu3) ...
+Setting up libkeyutils1:amd64 (1.6.3-6ubuntu3) ...
+Setting up libbrotli1:amd64 (1.2.0-3build1) ...
+Setting up libsasl2-modules:amd64 (2.1.28+dfsg1-9ubuntu3) ...
+Setting up libnghttp2-14:amd64 (1.68.0-2ubuntu0.2) ...
+Setting up krb5-locales (1.22.1-2ubuntu4.1) ...
+Setting up libldap-common (2.6.10+dfsg-1ubuntu5) ...
+Setting up libkrb5support0:amd64 (1.22.1-2ubuntu4.1) ...
+Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9ubuntu3) ...
+Setting up libnettle8t64:amd64 (3.10.2-1) ...
+Setting up bash-completion (1:2.16.0-8build1) ...
+Setting up libunistring5:amd64 (1.3-2build1) ...
+Setting up libk5crypto3:amd64 (1.22.1-2ubuntu4.1) ...
+Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9ubuntu3) ...
+Setting up libffi8:amd64 (3.5.2-4) ...
+Setting up libhogweed6t64:amd64 (3.10.2-1) ...
+Setting up libtasn1-6:amd64 (4.21.0-2) ...
+Setting up libkrb5-3:amd64 (1.22.1-2ubuntu4.1) ...
+Setting up libssh2-1t64:amd64 (1.11.1-1ubuntu0.26.04.4) ...
+Setting up openssl (3.5.5-1ubuntu3.7) ...
+Setting up publicsuffix (20260129.1928-1) ...
+Setting up libldap2:amd64 (2.6.10+dfsg-1ubuntu5) ...
+Setting up libidn2-0:amd64 (2.3.8-4build1) ...
+Setting up ca-certificates (20260601~26.04.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 79.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8.)
+debconf: falling back to frontend: Teletype
+Updating certificates in /etc/ssl/certs...
+121 added, 0 removed; done.
+Setting up libp11-kit0:amd64 (0.26.2-2) ...
+Setting up libgssapi-krb5-2:amd64 (1.22.1-2ubuntu4.1) ...
+Setting up libgnutls30t64:amd64 (3.8.12-2ubuntu1.1) ...
+Setting up libpsl5t64:amd64 (0.21.2-1.1build2) ...
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-3) ...
+Setting up libcurl4t64:amd64 (8.18.0-1ubuntu2.7) ...
+Setting up curl (8.18.0-1ubuntu2.7) ...
+Processing triggers for libc-bin (2.43-2ubuntu2.4) ...
+Processing triggers for ca-certificates (20260601~26.04.1) ...
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+root@1ebcae483bb8:/# curl http://super30-server
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, nginx is successfully installed and working.
+Further configuration is required for the web server, reverse proxy, 
+API gateway, load balancer, content cache, or other features.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://nginx.org/">nginx.org</a>.<br/>
+To engage with the community please visit
+<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
+For enterprise grade support, professional services, additional 
+security features and capabilities please refer to
+<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+root@1ebcae483bb8:/# exit
+exit
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker network inspect super30-network
+[
+    {
+        "Name": "super30-network",
+        "Id": "62bdcf0e75c571a4d89cda8dc66e793b8eca9346fce32fdcf4ed249007fe0834",
+        "Created": "2026-10-06T17:11:49.222802449Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {
+            "com.docker.network.enable_ipv4": "true",
+            "com.docker.network.enable_ipv6": "false"
+        },
+        "Labels": {},
+        "Containers": {
+            "6e8fb4f6df9541a688ad571b0a8835e5bfd627f44abe3fd0d7aa37f22d7e980a": {
+                "Name": "super30-server",
+                "EndpointID": "717236657bc864520585527d9425d29ba0bad710b4256625d2363c5100f5e8bc",
+                "MacAddress": "16:df:94:9b:a9:c1",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.18.0.0/16": {
+                        "IPsInUse": 4,
+                        "DynamicIPsAvailable": 65532
+                    }
+                }
+            }
+        }
+    }
+]
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker inspect super30-server
+[
+    {
+        "Id": "6e8fb4f6df9541a688ad571b0a8835e5bfd627f44abe3fd0d7aa37f22d7e980a",
+        "Created": "2026-10-06T17:12:16.042138588Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1612,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-06T17:12:16.102734272Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:f9ea18bfa4fad859e1ed38259d711da7ccad2c3516e875cec3351a57c859f571",
+        "ResolvConfPath": "/var/lib/docker/containers/6e8fb4f6df9541a688ad571b0a8835e5bfd627f44abe3fd0d7aa37f22d7e980a/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/6e8fb4f6df9541a688ad571b0a8835e5bfd627f44abe3fd0d7aa37f22d7e980a/hostname",
+        "HostsPath": "/var/lib/docker/containers/6e8fb4f6df9541a688ad571b0a8835e5bfd627f44abe3fd0d7aa37f22d7e980a/hosts",
+        "LogPath": "/var/lib/docker/containers/6e8fb4f6df9541a688ad571b0a8835e5bfd627f44abe3fd0d7aa37f22d7e980a/6e8fb4f6df9541a688ad571b0a8835e5bfd627f44abe3fd0d7aa37f22d7e980a-json.log",
+        "Name": "/super30-server",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "super30-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                23,
+                141
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "6e8fb4f6df95",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.31.6",
+                "NJS_VERSION=1.0.1",
+                "NJS_RELEASE=1~trixie",
+                "ACME_VERSION=0.4.1",
+                "PKG_RELEASE=1~trixie",
+                "DYNPKG_RELEASE=1~trixie"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "SandboxID": "7a35748f4ebcfd1c3d5e4cc4a799c162d651ab5e8f58ccbf529649377dd7206f",
+            "SandboxKey": "/var/run/docker/netns/7a35748f4ebc",
+            "Ports": {
+                "80/tcp": null
+            },
+            "Networks": {
+                "super30-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "62bdcf0e75c571a4d89cda8dc66e793b8eca9346fce32fdcf4ed249007fe0834",
+                    "EndpointID": "717236657bc864520585527d9425d29ba0bad710b4256625d2363c5100f5e8bc",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "MacAddress": "16:df:94:9b:a9:c1",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "super30-server",
+                        "6e8fb4f6df95"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:8792d66247249c7efa6b5ba788664dd5cc827073eaea0b1b6eac70846ec6d58e",
+            "size": 2290,
+            "annotations": {
+                "com.docker.official-images.bashbrew.arch": "amd64",
+                "org.opencontainers.image.base.digest": "sha256:918311b7b6c4c6f68b232ba516584925f6c78ad82b6fd534b98979df6438e483",
+                "org.opencontainers.image.base.name": "debian:trixie-slim",
+                "org.opencontainers.image.created": "2026-10-06T01:19:30Z",
+                "org.opencontainers.image.revision": "a16f1329e13e7273c4103f75d863ca625b75109e",
+                "org.opencontainers.image.source": "https://github.com/nginx/docker-nginx.git#a16f1329e13e7273c4103f75d863ca625b75109e:mainline/debian",
+                "org.opencontainers.image.url": "https://hub.docker.com/_/nginx",
+                "org.opencontainers.image.version": "1.31.6"
+            },
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker inspect super30-client
+[
+    {
+        "Id": "1ebcae483bb88b1d38af19f20b4197f7b37184c09b4921ac1fbe3ad968386bfb",
+        "Created": "2026-10-06T17:12:53.397689759Z",
+        "Path": "/bin/bash",
+        "Args": [],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-06T17:12:53.457805944Z",
+            "FinishedAt": "2026-10-06T17:13:52.119121847Z"
+        },
+        "Image": "sha256:f144425ff09be612d6d9ad965196e9cdc23dae1f42110a8a11a3e9a8198759f7",
+        "ResolvConfPath": "/var/lib/docker/containers/1ebcae483bb88b1d38af19f20b4197f7b37184c09b4921ac1fbe3ad968386bfb/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/1ebcae483bb88b1d38af19f20b4197f7b37184c09b4921ac1fbe3ad968386bfb/hostname",
+        "HostsPath": "/var/lib/docker/containers/1ebcae483bb88b1d38af19f20b4197f7b37184c09b4921ac1fbe3ad968386bfb/hosts",
+        "LogPath": "/var/lib/docker/containers/1ebcae483bb88b1d38af19f20b4197f7b37184c09b4921ac1fbe3ad968386bfb/1ebcae483bb88b1d38af19f20b4197f7b37184c09b4921ac1fbe3ad968386bfb-json.log",
+        "Name": "/super30-client",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "super30-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                23,
+                141
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "1ebcae483bb8",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "Labels": {
+                "org.opencontainers.image.created": "2026-09-27T10:25:52.887617+00:00",
+                "org.opencontainers.image.description": "The Ubuntu container image maintained by Canonical\n\nUbuntu is a Debian-based Linux operating system that runs from the desktop to the cloud, to all your internet connected things.\nIt is the world's most popular operating system across public clouds and OpenStack clouds.\nIt is the number one platform for containers; from Docker to Kubernetes to LXD, Ubuntu can run your containers at scale.\nFast, secure and simple, Ubuntu powers millions of PCs worldwide.\n",
+                "org.opencontainers.image.title": "ubuntu",
+                "org.opencontainers.image.version": "26.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "super30-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "62bdcf0e75c571a4d89cda8dc66e793b8eca9346fce32fdcf4ed249007fe0834",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "super30-client",
+                        "1ebcae483bb8"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:88a381d5b5eeb2b35d3ad70925a362c37ce569daf43ede89ff818ec20e4d3794",
+            "size": 1392,
+            "annotations": {
+                "com.docker.official-images.bashbrew.arch": "amd64",
+                "org.opencontainers.image.base.name": "scratch",
+                "org.opencontainers.image.created": "2026-09-27T00:00:00Z",
+                "org.opencontainers.image.revision": "97b63f1d28d5d0c4a7374bfa87241a49f984ed04",
+                "org.opencontainers.image.source": "https://git.launchpad.net/cloud-images/+oci/ubuntu-base",
+                "org.opencontainers.image.url": "https://hub.docker.com/_/ubuntu",
+                "org.opencontainers.image.version": "26.04"
+            },
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker rm -f super30-client
+super30-client
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker rm -f super30-server
+super30-server
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker network rm super30-network
+super30-network
+PS C:\Users\Dell\Downloads\super30-docker-assignment> docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+1df5db98c734   bridge    bridge    local
+0a08d84e6001   host      host      local
+70fe4a65b7f7   none      null      local
+PS C:\Users\Dell\Downloads\super30-docker-assignment> ^C
+PS C:\Users\Dell\Downloads\super30-docker-assignment> 

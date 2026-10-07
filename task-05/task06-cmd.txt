@@ -1,0 +1,49 @@
+C:\Users\Dell>docker run -d --name super30-detached ubuntu:latest sleep 3600
+53841842fcfd4bf30f8c521db130dd81f218d37a0cb5effffa7b103f08729239
+
+C:\Users\Dell>docker pull python:latest
+latest: Pulling from library/python
+4846f2900730: Pull complete
+9b0ef59a9f4a: Pull complete
+083b5813628d: Pull complete
+6e255bfcc16c: Pull complete
+62fe2e747f69: Pull complete
+4dc3950125eb: Pull complete
+b2eb680928d4: Pull complete
+621a17b277f8: Download complete
+a759dce5d367: Download complete
+Digest: sha256:7e30bd51483a565ac6b2119af3f4cc179aba3ecd0b64d14cc9e64629df60d1f6
+Status: Downloaded newer image for python:latest
+docker.io/library/python:latest
+
+C:\Users\Dell>docker pull nginx:latest
+latest: Pulling from library/nginx
+04bdbc7ea6b5: Pull complete
+807ab930f3a0: Pull complete
+1efc53192927: Pull complete
+f7e1db57b58b: Pull complete
+947d22046304: Pull complete
+8020170dc65f: Pull complete
+a1b85ab28c90: Download complete
+c329293b1d90: Download complete
+Digest: sha256:f9ea18bfa4fad859e1ed38259d711da7ccad2c3516e875cec3351a57c859f571
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+
+C:\Users\Dell>docker pull ubuntu:latest
+latest: Pulling from library/ubuntu
+Digest: sha256:f144425ff09be612d6d9ad965196e9cdc23dae1f42110a8a11a3e9a8198759f7
+Status: Image is up to date for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+C:\Users\Dell>docker images
+                                                                                                                                                                        i Info →   U  In Use
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+docker-file-demo:v1    7e56e537f560        212MB         51.2MB
+my-python-app:latest   b8676f7be2a0        189MB         46.5MB
+my-python:latest       9450dce66f50        178MB         43.5MB
+nginx:latest           f9ea18bfa4fa        243MB         66.7MB
+python:latest          7e30bd51483a       1.63GB          433MB
+ubuntu:latest          f144425ff09b        162MB         45.6MB    U
+
+C:\Users\Dell>
